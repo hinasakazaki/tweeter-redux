@@ -17,13 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        UINavigationBar.appearance().barTintColor = UIColor(hue: 0.9611, saturation: 0.31, brightness: 0.97, alpha: 1.0) /* #f7aabc */
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+                    
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
         
         if (User.currentUser != nil) {
             //force it to go to the logged in screen
             print("current user detected \(User.currentUser?.name)")
             var vc = storyBoard.instantiateViewControllerWithIdentifier("TweetsViewController") as UIViewController
-            window?.rootViewController = vc
+            let navController = UINavigationController(rootViewController: vc)
+//            self.presentViewController(navController, animated: true, completion: nil)
+            window?.rootViewController = navController
         }
         return true
     }
