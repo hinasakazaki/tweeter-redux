@@ -7,8 +7,8 @@
 //
 
 import UIKit
-let twitterConsumerKey = ""
-let twitterConsumerSecret = ""
+let twitterConsumerKey = "Weiv4l2ohsjYjuxLxmrsGaMyu"
+let twitterConsumerSecret = "Oh3aLx3oL6MyGlYRhQySdCpmRxPBglOb1nZhDqDukafKHVBJzt"
 let twitterBaseURL = NSURL(string: "https://api.twitter.com")
 
 
@@ -49,10 +49,6 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
                     print(error)
                     self.loginCompletion?(user:nil, error: error)
             })
-           
-            
-           
-            
             }) { (error:NSError!) -> Void in
                 print("Failed to receive access token")
                 self.loginCompletion?(user:nil, error: error)
@@ -63,9 +59,6 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     func homeTimelineWithCompletionWithParams(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
         GET("1.1/statuses/home_timeline.json", parameters:params, success: {(operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
             var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
-            for tweet in tweets {
-                print("text: \(tweet.text), createdAt: \(tweet.createdAt)")
-            }
             completion(tweets: tweets, error:nil)
             }, failure: {(operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
                 print(error)
@@ -73,16 +66,39 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         })
     }
     
-    func likePost(){
-        
+    func likePostWithParams(params: NSDictionary?, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        POST("1.1/favorites/create.json", parameters: params, success: {(operation: AFHTTPRequestOperation!, response:
+            AnyObject!) -> Void in
+            var tweet = Tweet(dictionary: (response as! NSDictionary))
+            completion(tweet: tweet, error: nil)
+            }, failure: {(operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                print(error)
+                completion(tweet: nil, error: error)
+        })
     }
     
-    func retweetPost(){
-        
+    func retweetPostWithParams(params: NSDictionary?, completion: (tweet: Tweet?, error: NSError?) -> ()) {
+        let id : String = (params?.objectForKey("id"))! as! String
+        POST("1.1/statuses/retweet/\(id).json", parameters: params, success: {(operation: AFHTTPRequestOperation!, response:
+            AnyObject!) -> Void in
+            var tweet = Tweet(dictionary: (response as! NSDictionary))
+            completion(tweet: tweet, error: nil)
+            }, failure: {(operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                print(error)
+                completion(tweet: nil, error: error)
+        })
     }
     
-    func writePostWithParams(){
-        
+    func writePostWithParams(params: NSDictionary?, completion: (tweet: Tweet?, error: NSError?) -> ()){
+        POST("1.1/statuses/update.json", parameters:params, success: {(operation: AFHTTPRequestOperation!, response:
+            AnyObject!) -> Void in
+            print("success posting!!!!")
+            var tweet = Tweet(dictionary: (response as! NSDictionary))
+            completion(tweet: tweet, error: nil)
+            }, failure: {(operation: AFHTTPRequestOperation!, error: NSError!) -> Void in
+                print(error)
+                completion(tweet: nil, error: error)
+        })
     }
 
 }

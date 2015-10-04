@@ -26,8 +26,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         
-        
-        
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 400
         // Do any additional setup after loading the view.
@@ -77,6 +75,14 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 tweetDetailViewController.tweet = tweet
             } else {
                 //handle the case of 'self.objects' being 'nil'
+            }
+        } else if segue.identifier == "ReplySegue" {
+            let postViewController = segue.destinationViewController as! PostViewController
+            let indexPath = tableView.indexPathForCell((sender?.superview)?.superview as! UITableViewCell)
+            if let tweet = self.tweets?[indexPath!.row] {
+                postViewController.replyToTweet = tweet
+            } else {
+                //nothing
             }
         }
     }
