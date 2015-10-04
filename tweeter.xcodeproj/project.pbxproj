@@ -28,6 +28,7 @@
 		2AE093AD1BC0A3E100F7832D /* retweet_hover.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE093A51BC0A3E100F7832D /* retweet_hover.png */; settings = {ASSET_TAGS = (); }; };
 		2AE093AE1BC0A3E100F7832D /* retweet_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE093A61BC0A3E100F7832D /* retweet_on.png */; settings = {ASSET_TAGS = (); }; };
 		2AE093AF1BC0A3E100F7832D /* retweet.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE093A71BC0A3E100F7832D /* retweet.png */; settings = {ASSET_TAGS = (); }; };
+		2AE093B11BC0C92A00F7832D /* TweetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE093B01BC0C92A00F7832D /* TweetDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		BFFD87ED8E733E7E748EB342 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA3C336DAD40412E5C1A057 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,7 @@
 		2AE093A51BC0A3E100F7832D /* retweet_hover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retweet_hover.png; sourceTree = "<group>"; };
 		2AE093A61BC0A3E100F7832D /* retweet_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retweet_on.png; sourceTree = "<group>"; };
 		2AE093A71BC0A3E100F7832D /* retweet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retweet.png; sourceTree = "<group>"; };
+		2AE093B01BC0C92A00F7832D /* TweetDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetDetailViewController.swift; sourceTree = "<group>"; };
 		80174EC61F5892D5CA058D62 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CFA3C336DAD40412E5C1A057 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 				2A1EF87F1BC02F7200BDD675 /* AppDelegate.swift */,
 				2A1EF8811BC02F7200BDD675 /* ViewController.swift */,
 				2A1EF8831BC02F7200BDD675 /* Main.storyboard */,
+				2AE093B01BC0C92A00F7832D /* TweetDetailViewController.swift */,
 				2A6731B61BC0895800196D69 /* TweetViewCell.swift */,
 				2A6731B41BC06A7C00196D69 /* TweetsViewController.swift */,
 				2A1EF8861BC02F7200BDD675 /* Assets.xcassets */,
@@ -397,6 +400,7 @@
 				2A6731B51BC06A7C00196D69 /* TweetsViewController.swift in Sources */,
 				2A1EF8821BC02F7200BDD675 /* ViewController.swift in Sources */,
 				2A1EF8B21BC036EA00BDD675 /* TwitterClient.swift in Sources */,
+				2AE093B11BC0C92A00F7832D /* TweetDetailViewController.swift in Sources */,
 				2A1EF8801BC02F7200BDD675 /* AppDelegate.swift in Sources */,
 				2A6731B71BC0895800196D69 /* TweetViewCell.swift in Sources */,
 			);

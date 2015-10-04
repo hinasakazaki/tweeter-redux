@@ -10,6 +10,9 @@ import UIKit
 
 class TweetViewCell: UITableViewCell {
 
+    @IBOutlet weak var faveCount: UILabel!
+    @IBOutlet weak var retweetCount: UILabel!
+    @IBOutlet weak var authorScreenName: UILabel!
     @IBOutlet weak var tweetImageView: UIImageView!
     @IBOutlet weak var authorName: UILabel!
     @IBOutlet weak var tweetText: UILabel!
@@ -22,6 +25,14 @@ class TweetViewCell: UITableViewCell {
     var tweet : Tweet! {
         didSet{
             tweetText.text = tweet.text
+            authorScreenName.text = "@\(tweet.author!.screenName!)"
+            
+            if (tweet.retweetCount != nil && tweet.retweetCount > 0) {
+                retweetCount.text = "\(tweet.retweetCount!)"
+            }
+            if (tweet.retweetCount != nil && tweet.faveCount > 0){
+                faveCount.text = "\(tweet.faveCount!)"
+            }
 //            if (tweet.createdAt?.timeIntervalSinceNow < )
 //            tweetTime.text = tweet.
             authorName.text = tweet.author?.name

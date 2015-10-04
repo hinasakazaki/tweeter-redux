@@ -7,6 +7,8 @@
 //
 
 import UIKit
+let twitterConsumerKey = ""
+let twitterConsumerSecret = ""
 let twitterBaseURL = NSURL(string: "https://api.twitter.com")
 
 
@@ -69,6 +71,18 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
                 print(error)
                 completion(tweets: nil, error:error)
         })
+    }
+    
+    func likePost(){
+        
+    }
+    
+    func retweetPost(){
+        
+    }
+    
+    func writePostWithParams(){
+        
     }
 
 }
