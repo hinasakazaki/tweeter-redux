@@ -7,8 +7,6 @@
 //
 
 import UIKit
-let twitterConsumerKey = "Weiv4l2ohsjYjuxLxmrsGaMyu"
-let twitterConsumerSecret = "Oh3aLx3oL6MyGlYRhQySdCpmRxPBglOb1nZhDqDukafKHVBJzt"
 let twitterBaseURL = NSURL(string: "https://api.twitter.com")
 
 
