@@ -15,6 +15,9 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+//        
+//        let pan = UIPanGestureRecognizer(target: self, action: "didPan")
+//        self.v.addGestureRecognizer(pan)
         
         refresh()
 
@@ -86,8 +89,25 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             }
         }
     }
-
     
+//    func didPan(sender:UIPanGestureRecognizer){
+//        switch sender.state {
+//        case .Began:
+//            NSLog("began")
+//            
+//        case .Changed:
+//            NSLog("changed")
+//            
+//        case .Cancelled:
+//            NSLog("cancelled")
+//        
+//        default:
+//            NSLog("whatevs")
+//            
+//        }
+//    }
+
+   
     /*
     // MARK: - Navigation
 

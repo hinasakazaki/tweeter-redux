@@ -128,7 +128,7 @@
                                                         <action selector="onLike:" destination="pEs-Vr-hej" eventType="touchUpInside" id="0L0-pg-req"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMU-yI-WPn">
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NMU-yI-WPn">
                                                     <rect key="frame" x="132" y="62" width="23" height="22"/>
                                                     <state key="normal" title="Button" image="retweet.png"/>
                                                     <connections>
@@ -143,7 +143,9 @@
                                                 <constraint firstItem="SdP-Nz-owx" firstAttribute="leading" secondItem="yAv-Iq-xby" secondAttribute="trailing" constant="8" id="MBj-eJ-SUe"/>
                                                 <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Zfr-YS-hwq" secondAttribute="trailing" constant="12" id="N10-ii-Ij5"/>
                                                 <constraint firstItem="xf1-WJ-fkB" firstAttribute="top" secondItem="Tmo-fc-1dk" secondAttribute="top" constant="22" id="PL2-uH-2TR"/>
+                                                <constraint firstAttribute="bottom" secondItem="NMU-yI-WPn" secondAttribute="bottom" constant="8.5" id="S2P-8v-pFu"/>
                                                 <constraint firstItem="yAv-Iq-xby" firstAttribute="leading" secondItem="Tmo-fc-1dk" secondAttribute="leading" constant="14" id="VVd-E8-JOv"/>
+                                                <constraint firstItem="Vdh-UM-w1o" firstAttribute="leading" secondItem="NMU-yI-WPn" secondAttribute="trailing" id="aLS-GP-gtW"/>
                                                 <constraint firstItem="8he-d0-8Ag" firstAttribute="leading" secondItem="SdP-Nz-owx" secondAttribute="trailing" constant="8" id="dSa-Yy-L0M"/>
                                                 <constraint firstItem="xf1-WJ-fkB" firstAttribute="leading" secondItem="yAv-Iq-xby" secondAttribute="trailing" constant="9" id="e4W-qc-NgB"/>
                                                 <constraint firstItem="yAv-Iq-xby" firstAttribute="top" secondItem="Tmo-fc-1dk" secondAttribute="top" constant="7" id="gEc-4k-ttc"/>
@@ -171,12 +173,16 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2au-RK-R9s" secondAttribute="trailing" id="1Ww-F9-vW3"/>
                             <constraint firstItem="2au-RK-R9s" firstAttribute="leading" secondItem="UWn-yb-wYJ" secondAttribute="leading" id="YxT-u2-BRR"/>
                             <constraint firstItem="2au-RK-R9s" firstAttribute="top" secondItem="UWn-yb-wYJ" secondAttribute="top" id="fqV-5B-huK"/>
                             <constraint firstAttribute="bottom" secondItem="2au-RK-R9s" secondAttribute="bottom" id="s3T-x8-EfI"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Uy2-md-6cc" appends="YES" id="yxt-6J-LoJ"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Kao-mw-FpY">
@@ -193,10 +199,18 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="panGestureRecognizer" destination="Uy2-md-6cc" id="ZLn-Hf-FAo"/>
                         <outlet property="tableView" destination="2au-RK-R9s" id="TzI-vM-XZ8"/>
+                        <outlet property="v" destination="UWn-yb-wYJ" id="HH7-H3-9Zx"/>
+                        <outlet property="view" destination="UWn-yb-wYJ" id="H5T-Ca-SfU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqc-1V-xhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Uy2-md-6cc">
+                    <connections>
+                        <action selector="didPan:" destination="Vju-h5-KSf" id="pfN-Xx-yM6"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1527" y="349"/>
         </scene>
@@ -422,6 +436,6 @@
         <image name="retweet.png" width="19" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LXJ-Nd-NXz"/>
+        <segue reference="y1R-qo-OiI"/>
     </inferredMetricsTieBreakers>
 </document>

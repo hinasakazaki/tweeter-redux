@@ -21,7 +21,7 @@ class PostViewController: UIViewController {
         userImageView.setImageWithURL(NSURL(string : (User.currentUser?.profileImageURL)!))
         userScreenName.text = User.currentUser?.screenName
         if (replyToTweet != nil) {
-            tweetEdit.text = "@\(replyToTweet!.author!.name!)"
+            tweetEdit.text = "@\(replyToTweet!.author!.screenName!)"
         }
         // Do any additional setup after loading the view.
     }
