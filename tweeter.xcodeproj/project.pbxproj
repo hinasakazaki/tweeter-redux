@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A0C52A31BC77D3B00BF2A11 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A0C52A21BC77D3B00BF2A11 /* ProfileViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		2A1EF8801BC02F7200BDD675 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1EF87F1BC02F7200BDD675 /* AppDelegate.swift */; };
 		2A1EF8821BC02F7200BDD675 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1EF8811BC02F7200BDD675 /* ViewController.swift */; };
 		2A1EF8851BC02F7200BDD675 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A1EF8831BC02F7200BDD675 /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		0F3C8EBA471F6F1DCFA29745 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2A0C52A21BC77D3B00BF2A11 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2A1EF87C1BC02F7200BDD675 /* tweeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tweeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A1EF87F1BC02F7200BDD675 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A1EF8811BC02F7200BDD675 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				2A1EF87F1BC02F7200BDD675 /* AppDelegate.swift */,
 				2A1EF8811BC02F7200BDD675 /* ViewController.swift */,
 				2A1EF8831BC02F7200BDD675 /* Main.storyboard */,
+				2A0C52A21BC77D3B00BF2A11 /* ProfileViewController.swift */,
 				2AE093B21BC0E3F200F7832D /* PostViewController.swift */,
 				2AE093B01BC0C92A00F7832D /* TweetDetailViewController.swift */,
 				2A6731B61BC0895800196D69 /* TweetViewCell.swift */,
@@ -400,6 +403,7 @@
 			files = (
 				2AE093B31BC0E3F200F7832D /* PostViewController.swift in Sources */,
 				2A6731B11BC0501300196D69 /* User.swift in Sources */,
+				2A0C52A31BC77D3B00BF2A11 /* ProfileViewController.swift in Sources */,
 				2A6731B31BC0501C00196D69 /* Tweet.swift in Sources */,
 				2A6731B51BC06A7C00196D69 /* TweetsViewController.swift in Sources */,
 				2A1EF8821BC02F7200BDD675 /* ViewController.swift in Sources */,

@@ -8,18 +8,16 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TweetViewCellDelegate {
     var tweets : [Tweet]?
     var refreshControl:UIRefreshControl!
+    
+    var thisTweetToProfile : User?
     
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        
-//        let pan = UIPanGestureRecognizer(target: self, action: "didPan")
-//        self.v.addGestureRecognizer(pan)
         
         refresh()
 
@@ -65,6 +63,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetViewCell", forIndexPath: indexPath) as! TweetViewCell
         cell.tweet = tweets![indexPath.row]
         cell.menuView = self.menuView
+        cell.delegate = self
         return cell
     }
     
@@ -90,27 +89,29 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             } else {
                 //nothing
             }
+        } else if segue.identifier == "TweetToProfileSegue" {
+            let profileViewController = segue.destinationViewController as! ProfileViewController
+            profileViewController.user = thisTweetToProfile
+            NSLog("SJDFLKJSDLKF")
+            
         }
     }
     
-//    func didPan(sender:UIPanGestureRecognizer){
-//        switch sender.state {
-//        case .Began:
-//            NSLog("began")
-//            
-//        case .Changed:
-//            NSLog("changed")
-//            
-//        case .Cancelled:
-//            NSLog("cancelled")
-//        
-//        default:
-//            NSLog("whatevs")
-//            
-//        }
-//    }
+    @objc func tapOnImage(tweetViewCell: TweetViewCell) {
+        thisTweetToProfile = tweetViewCell.tweet.author
+        performSegueWithIdentifier("TweetToProfileSegue", sender: nil)
+    }
+    
+    @IBAction func goToProfile(sender: AnyObject) {
+        thisTweetToProfile = User.currentUser
+        performSegueWithIdentifier("TweetToProfileSegue", sender: nil)
+    }
 
+    @IBAction func goToHomeTimeLine(sender: AnyObject) {
+    }
    
+    @IBAction func goToMentions(sender: AnyObject) {
+    }
     /*
     // MARK: - Navigation
 

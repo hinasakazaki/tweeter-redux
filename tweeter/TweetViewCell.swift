@@ -8,8 +8,13 @@
 
 import UIKit
 
+@objc protocol TweetViewCellDelegate {
+    optional func tapOnImage(tweetViewCell: TweetViewCell)
+}
 
 class TweetViewCell: UITableViewCell {
+    
+    weak var delegate: TweetViewCellDelegate?
     
     @IBOutlet weak var faveCount: UILabel!
     @IBOutlet weak var retweetCount: UILabel!
@@ -31,6 +36,10 @@ class TweetViewCell: UITableViewCell {
         var recognizer = UIPanGestureRecognizer(target: self, action: "handlePan:")
         recognizer.delegate = self
         addGestureRecognizer(recognizer)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: "imageTapped:")
+        tweetImageView.addGestureRecognizer(tapGesture)
+        tweetImageView.userInteractionEnabled = true
         
     }
     
@@ -97,14 +106,12 @@ class TweetViewCell: UITableViewCell {
         }
         if recognizer.state == .Changed {
             if (recognizer.velocityInView(menuView).x > 0) {
-                NSLog("SDJFLK:SDJFLKD")
                 //move right
                 UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-                    self.menuView.center = CGPoint(x : self.menuOriginalCenter.x + 100, y:  self.menuOriginalCenter.y) //this is bullshit
+                    self.menuView.center = CGPoint(x : 67, y:  self.menuOriginalCenter.y) //this is bullshit
                     }, completion: nil)
                 
             } else {
-                NSLog("MOV LEFT")
                 //move left
                 UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
                     self.menuView.center = CGPoint(x : self.menuOriginalCenter.x, y: self.menuOriginalCenter.y) //this makes sense because we are setting original center to original center
@@ -112,4 +119,12 @@ class TweetViewCell: UITableViewCell {
         }
         if recognizer.state == .Ended {
             }
-        }}}
+        }
+    }
+
+    func imageTapped(gesture: UITapGestureRecognizer) {
+        if (delegate != nil) {
+            delegate?.tapOnImage!(self)
+        }
+    }
+}
