@@ -180,9 +180,6 @@
                             <constraint firstItem="2au-RK-R9s" firstAttribute="top" secondItem="UWn-yb-wYJ" secondAttribute="top" id="fqV-5B-huK"/>
                             <constraint firstAttribute="bottom" secondItem="2au-RK-R9s" secondAttribute="bottom" id="s3T-x8-EfI"/>
                         </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="Uy2-md-6cc" appends="YES" id="yxt-6J-LoJ"/>
-                        </connections>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Kao-mw-FpY">
@@ -199,18 +196,10 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="panGestureRecognizer" destination="Uy2-md-6cc" id="ZLn-Hf-FAo"/>
                         <outlet property="tableView" destination="2au-RK-R9s" id="TzI-vM-XZ8"/>
-                        <outlet property="v" destination="UWn-yb-wYJ" id="HH7-H3-9Zx"/>
-                        <outlet property="view" destination="UWn-yb-wYJ" id="H5T-Ca-SfU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bqc-1V-xhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="Uy2-md-6cc">
-                    <connections>
-                        <action selector="didPan:" destination="Vju-h5-KSf" id="pfN-Xx-yM6"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1527" y="349"/>
         </scene>

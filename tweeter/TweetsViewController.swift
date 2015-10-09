@@ -15,6 +15,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 //        
 //        let pan = UIPanGestureRecognizer(target: self, action: "didPan")
 //        self.v.addGestureRecognizer(pan)
