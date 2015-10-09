@@ -8,8 +8,9 @@
 
 import UIKit
 
-class TweetViewCell: UITableViewCell {
 
+class TweetViewCell: UITableViewCell {
+    
     @IBOutlet weak var faveCount: UILabel!
     @IBOutlet weak var retweetCount: UILabel!
     @IBOutlet weak var authorScreenName: UILabel!
@@ -21,9 +22,23 @@ class TweetViewCell: UITableViewCell {
     @IBOutlet weak var faveIcon: UIButton!
     @IBOutlet weak var tweetTime: UILabel!
 
+    var menuOriginalCenter : CGPoint!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        // add a pan recognizer
+        var recognizer = UIPanGestureRecognizer(target: self, action: "handlePan:")
+        recognizer.delegate = self
+        addGestureRecognizer(recognizer)
+        
+    }
+    
+    var menuView : UIView! {
+        didSet {
+            menuOriginalCenter = menuView.center
+
+        }
     }
     
     var tweet : Tweet! {
@@ -75,4 +90,26 @@ class TweetViewCell: UITableViewCell {
             print(tweet)
         }
     }
-}
+    
+    func handlePan(recognizer: UIPanGestureRecognizer) {
+        if recognizer.state == .Began {
+            // when the gesture begins, record the current center location
+        }
+        if recognizer.state == .Changed {
+            if (recognizer.velocityInView(menuView).x > 0) {
+                NSLog("SDJFLK:SDJFLKD")
+                //move right
+                UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+                    self.menuView.center = CGPoint(x : self.menuOriginalCenter.x + 100, y:  self.menuOriginalCenter.y) //this is bullshit
+                    }, completion: nil)
+                
+            } else {
+                NSLog("MOV LEFT")
+                //move left
+                UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+                    self.menuView.center = CGPoint(x : self.menuOriginalCenter.x, y: self.menuOriginalCenter.y) //this makes sense because we are setting original center to original center
+                    }, completion: nil)
+        }
+        if recognizer.state == .Ended {
+            }
+        }}}
